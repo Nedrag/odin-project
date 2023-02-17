@@ -1,0 +1,32 @@
+.header-container {
+	background-color: #ede3e3;
+	padding-top: 36pt;
+	padding-bottom: 36pt;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding-left: 70pt;
+	padding-right: 70pt;
+}
+.header-text {
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	font-size: 36px;
+	text-align: center;
+	color: black;
+	margin: 0;
+}
+body,
+html {
+	margin: 0;
+}
+.grid-element {
+	background-color: white;
+	font-size: 50px;
+	text-align: center;
+}
+.screen-container {
+	display: grid;
+	padding: 60pt 20vh;
+	grid-template-columns: repeat(16, 1fr);
+	grid-template-rows: repeat(16, 1fr);
+}
