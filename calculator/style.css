@@ -26,14 +26,15 @@ html {
 .screen-container {
 	background-color: rgb(28, 28, 30);
 	width: inherit;
-	height: 20vh;
+	height: 25vh;
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	justify-content: flex-end;
+	flex-shrink: 1;
 }
 .result {
+	width: inherit;
 	margin: 0;
-	padding-top: 55pt;
 	padding-bottom: 0pt;
 	padding-right: 0;
 	padding-left: 0;
