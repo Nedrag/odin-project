@@ -105,3 +105,8 @@ html {
 .white-type {
 	color: rgb(242, 242, 247);
 }
+.btn-small-click:hover,
+.btn-large-click:hover {
+	opacity: 70%;
+	background-color: white;
+}

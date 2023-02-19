@@ -41,6 +41,7 @@ btnSix.addEventListener("click", () => handleButtonNumber(btnSix));
 btnSeven.addEventListener("click", () => handleButtonNumber(btnSeven));
 btnEight.addEventListener("click", () => handleButtonNumber(btnEight));
 btnNine.addEventListener("click", () => handleButtonNumber(btnNine));
+btnDot.addEventListener("click", () => handleButtonNumber(btnDot));
 //Event for utility buttons
 btnAC.addEventListener("click", () => clearScreen());
 btnPlus.addEventListener("click", () => handleArithmetic(btnPlus));
@@ -85,6 +86,13 @@ function clearScreen() {
 	result.textContent = "";
 	SECOND_OPERAND = false;
 }
+function handleOverflow(resultText) {
+	let retVal = "";
+	if (resultText.trim().length >= 8) {
+		retVal = resultText.slice(0, 8);
+	}
+	return retVal;
+}
 
 function handleArithmetic(btn) {
 	if (btn.textContent.trim() !== "=") {
@@ -94,7 +102,7 @@ function handleArithmetic(btn) {
 	let OPERATION_MODE = btn.textContent.trim(); //Removes whitespace
 	currentSign.textContent = OPERATION_MODE; //Changes the text so it displays the sign
 	SECOND_OPERAND = true;
-	console.log("right");
+	//console.log("right");
 	let x = parseFloat(OPERATOR1);
 	let y = parseFloat(OPERATOR2);
 	if (OPERATOR1 !== "" && OPERATOR2 !== "") {
@@ -103,18 +111,21 @@ function handleArithmetic(btn) {
 				OPERATOR1 = x + y; //Do the operation
 				OPERATOR2 = ""; //Empty out
 				result.textContent = OPERATOR1; //Display
+				result.textContent = handleOverflow(result.textContent);
 				currentSign.textContent = ""; //Changes the text so it displays the sign
 				break;
 			case "-":
 				OPERATOR1 = x - y; //Do the operation
 				OPERATOR2 = ""; //Empty out
 				result.textContent = OPERATOR1; //Display
+				result.textContent = handleOverflow(result.textContent);
 				currentSign.textContent = ""; //Changes the text so it displays the sign
 				break;
 			case "x":
 				OPERATOR1 = x * y; //Do the operation
 				OPERATOR2 = ""; //Empty out
 				result.textContent = OPERATOR1; //Display
+				result.textContent = handleOverflow(result.textContent);
 				currentSign.textContent = ""; //Changes the text so it displays the sign
 				break;
 			case "/":
@@ -124,6 +135,7 @@ function handleArithmetic(btn) {
 				OPERATOR1 = x / y; //Do the operation
 				OPERATOR2 = ""; //Empty out
 				result.textContent = OPERATOR1; //Display
+				result.textContent = handleOverflow(result.textContent);
 				currentSign.textContent = ""; //Changes the text so it displays the sign
 				break;
 			case "=":
@@ -132,6 +144,7 @@ function handleArithmetic(btn) {
 						OPERATOR1 = x + y; //Do the operation
 						OPERATOR2 = ""; //Empty out
 						result.textContent = OPERATOR1; //Display
+						result.textContent = handleOverflow(result.textContent);
 						currentSign.textContent = ""; //Changes the text so it displays the sign
 						PREVIOUS_BUTTON = "";
 						break;
@@ -139,6 +152,7 @@ function handleArithmetic(btn) {
 						OPERATOR1 = x - y; //Do the operation
 						OPERATOR2 = ""; //Empty out
 						result.textContent = OPERATOR1; //Display
+						result.textContent = handleOverflow(result.textContent);
 						currentSign.textContent = ""; //Changes the text so it displays the sign
 						PREVIOUS_BUTTON = "";
 						break;
@@ -146,6 +160,7 @@ function handleArithmetic(btn) {
 						OPERATOR1 = x * y; //Do the operation
 						OPERATOR2 = ""; //Empty out
 						result.textContent = OPERATOR1; //Display
+						result.textContent = handleOverflow(result.textContent);
 						currentSign.textContent = ""; //Changes the text so it displays the sign
 						PREVIOUS_BUTTON = "";
 						break;
@@ -156,6 +171,7 @@ function handleArithmetic(btn) {
 						OPERATOR1 = x / y; //Do the operation
 						OPERATOR2 = ""; //Empty out
 						result.textContent = OPERATOR1; //Display
+						result.textContent = handleOverflow(result.textContent);
 						currentSign.textContent = ""; //Changes the text so it displays the sign
 						PREVIOUS_BUTTON = "";
 						break;
